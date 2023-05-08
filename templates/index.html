@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="row">
+    <div class="offset-md-3 card col-md-5 text-start p-2">
+
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">
+            <form class=" g-3 needs-validation" method="POST" action="" novalidate>
+                <div class="p-2 m-2">
+                    <label for="validationCustom01" class="form-label">Roll no</label>
+                    <input type="text" class="form-control" name="StuRollNo" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="p-2 m-2">
+                    <label for="validationCustom02" class="form-label">name</label>
+                    <input type="text" class="form-control" name="stuName" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class=" p-2 m-2">
+                    <label for="validationCustom04" class="form-label">Subject</label>
+                    <select class="form-select" name="stuSubject" required>
+                        <option selected disabled value="">Subject...</option>
+
+                        {% for i in subjects %}
+
+                        <option value="{{i.id}}" class="text-dark">{{i.subjectName}}</option>
+                        {% endfor %}
+
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid Subject.
+                    </div>
+                </div>
+                <div class=" p-2 m-2">
+                    <label for="validationCustom04" class="form-label">Teacher</label>
+                    <select class="form-select" name="stuTeacher" required>
+                        <option selected disabled value="">Teacher...</option>
+                        {% for i in Teachers %}
+
+                        <option value="{{i.id}}" class="text-dark">{{i.username}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid Teacher.
+                    </div>
+                </div>
+                <div class="p-2 m-2">
+                    <label for="validationCustom02" class="form-label">marks</label>
+                    <input type="text" class="form-control" name="stuMarks" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="table-responsive container">
+        <table class="table table-success">
+            <thead>
+                <tr>
+                    <th scope="col">roll NO</th>
+                    <th scope="col">name</th>
+                    <th scope="col">subject</th>
+                    <th scope="col">teacher</th>
+                    <th scope="col">Marks</th>
+                    <th scope="col">Result</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for i in students %}
+                    
+                        
+                    <tr class="">
+                        <td>{{i.rollNo}}</td>
+                        <td>{{i.StuName}}</td>
+                        <td>{{ i.subject}}</td>
+                        <td>{{i.Teacher}}</td>
+                        <td>{{i.marks}}</td>
+                         <td><form action="{{url_for('viewResult')}}"  method="POST">
+                            <input type="hidden" name="viewID" value="{{i.id}}" />
+                            <input class="btn btn-primary" type="submit" value="View">
+                        </form></td>
+                        <td><form action="{{url_for('updateStudent')}}"  method="POST">
+                            <input type="hidden" name="editID" value="{{i.id}}" />
+                            <input class="btn btn-warning" type="submit" value="edit">
+                        </form></td>
+                        <td><form action="{{url_for('deleteStudent')}}"  method="POST">
+                            <input type="hidden" name="deleteID" value="{{i.id}}" />
+                            <input class="btn btn-danger" type="submit" value="delete">
+                        </form></td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock body %}
+    

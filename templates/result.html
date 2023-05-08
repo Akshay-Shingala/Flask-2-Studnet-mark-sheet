@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="row">
+    <div class=" offset-md-4 text-center mt-2 card col-md-4">
+        <div class="card-header">
+            <h4 class="card-title">Result</h4>
+
+        </div>
+        <div class="card-body">
+            <div class="row mt-2">
+                <div class="col">
+                    Roll number :
+                </div>
+                <div class="col">
+                    {{user[0].rollNo}}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    Name
+                </div>
+                <div class="col">
+                    {{user[0].StuName}}
+                </div>
+            </div>
+
+
+
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">subject</th>
+                        <th scope="col">Teacher</th>
+                        <th scope="col">Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in user %}
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{i.subject}}</td>
+                        <td>{{i.Teacher}}</td>
+                        <td>{{i.marks}}</td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="row mt-4">
+                <div class="col">
+                    total
+                </div>
+                <div class="col">
+                    {{total}}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    percentage
+                </div>
+                <div class="col">
+                    {{per}}
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Footer
+        </div>
+    </div>
+</div>
+{% endblock body %}
